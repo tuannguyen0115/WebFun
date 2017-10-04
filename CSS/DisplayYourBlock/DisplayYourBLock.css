@@ -1,0 +1,49 @@
+/*CSS reset settings here*/
+*{
+ margin: 1%;
+ padding: 1%;
+}
+
+img {
+    width:90%;
+}
+
+img#imgheader {
+    width:13%;
+}
+#wrapper{
+ width: 50%;
+ background-color: #b7bc93;
+ margin:0 auto;
+ overflow: hidden;
+ height: auto;
+}
+#header{
+ height: 90px;
+ width: 97%;
+ margin:auto;
+ display: flex;
+ /*align-items:flex-end;*/
+}
+
+#main_content{
+ width: 100%;
+ margin: auto;
+}
+.subcontents{
+ height: 20%;
+ width: 19%;
+ border: 2px solid black;
+}
+.odd {
+  background-color: #8bb3f4;
+}
+
+.even {
+  background-color: #e08670;
+}
+#advertisement{
+ height: 120px;
+ width: 93%;
+ background-color: purple;
+}
