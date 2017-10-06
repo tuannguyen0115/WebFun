@@ -1,0 +1,26 @@
+* {
+    text-color:white;
+}
+
+p {
+    color:white;
+}
+#wrapper {
+    background-color: #245076;
+    width: 970px;
+    height: 700px;
+    display: inline-block;
+}
+
+.button {
+     background-color:#245076;
+     border: 1px solid gray;
+     color: white;
+}
+
+#header {
+    background-color: green;
+    width: 100%;
+    height: 300px;
+
+}
