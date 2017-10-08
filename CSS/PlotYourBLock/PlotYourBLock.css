@@ -6,7 +6,6 @@
 #wrapper{
  width: 950px;
  background-color: silver;
- margin: 0px auto;
  overflow: hidden;
  height: auto;
 }
@@ -16,21 +15,22 @@
 }
 #navigation{
  height: 300px;
- width: 30%;
+ width: 250px;
  background-color: blue;
- float:left;
+ display: inline-block;
 }
 #main_content{
  height: 400px;
- width: 61%;
+ width: 600px;
  background-color: red;
- float:right;
+ display: inline-block;
+ float: right;
 }
 .subcontents{
  height: 200px;
  width: 26%;
  background-color: yellow;
- display: inline-table;
+ display: inline-block;
 }
 #advertisement{
  height: 120px;
