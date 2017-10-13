@@ -1,0 +1,162 @@
+* {
+    font-family: "Arial";
+}
+
+#wrapper {
+    width: 1000px;
+    height: 1000px;
+}
+
+/*========================================================*/
+
+#header {
+    width: 1000px;
+    height: 110px;
+}
+
+#header img {
+    height: 80px;
+    position: absolute;
+    margin-left: 15px;
+}
+
+#the_internet {
+    margin-top: 15px;
+    margin-left: 100px;
+    font-size: 45px;
+}
+
+#the_www {
+    background:linear-gradient(#2969a0,#5789b5,#2969a0);
+    color: white;
+    font-size: 30px;
+    margin:auto;
+    padding: 15px 20px;
+
+}
+
+
+/*========================================================*/
+
+#main_content {
+    width: 1000px;
+    height: 800px;
+    background: linear-gradient(#e5e5e5, white, white);
+}
+
+#sidebar {
+    width: 230px;
+    height: 800px;
+    display: inline-block;
+
+}
+    #sidebar p {
+        font-weight: bold;
+    }
+
+    #sidebar input {
+        width: 100%;
+        height: 35px;
+        color: white;
+        background:linear-gradient(#6b9ec9,#25669e);
+        border-radius: 15px;
+        box-shadow: 2px 1px 1px black;
+        font-weight: bold;
+        font-size: 17px;
+        margin-top: 5px;
+    }
+
+    #sidebar img {
+        width: 60%;
+        margin-right: 20px;
+
+    }
+
+    #sidebar hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+.sidebar_ad {
+    width:100%;
+    height: 350px;
+    background-image: url("images/ad_background.png");
+    text-align: center;
+}
+
+#p_ad {
+    color: white;
+    font-size: 18px;
+    width: 170px;
+    margin: 0px 30px;
+}
+
+/*========================================================*/
+
+#main_window {
+    display:inline-block;
+    vertical-align: top;
+    width: 700px;
+    margin-left: 50px;
+}
+
+    #main_window .dns_logo {
+        vertical-align: top;
+        display: inline-block;
+    }
+    #main_window .dns_logo img {
+        display: inline-block;
+        width: 25px;
+    }
+
+    #main_window .dns_logo p {
+        color: #4c83b3;
+        font-weight: 900;
+        display: inline-block;
+    }
+
+    #main_window .contact_info {
+        display:inline-block;
+        vertical-align: top;
+        margin-left: 430px;
+    }
+    #main_window .contact_info img {
+        width: 45px;
+        display: inline-block;
+    }
+    #main_window .contact_info p {
+        display: inline-block;
+        font-size:10px;
+    }
+
+
+    #main_window .paragraph h3 {
+        color: #2768a0;
+        margin: auto;
+        vertical-align: top;
+    }
+    #main_window .paragraph p,ul,li {
+        font-size: 13px;
+        vertical-align: top;
+    }
+    #main_window img {
+        width: 250px;
+        display:block;
+        margin: 0 auto;
+    }
+
+    #main_window .box  {
+        border: 4px solid #2768a0;
+        padding: 10px;
+        display: inline-block;
+    }
+    #main_window .box img{
+        display: inline-block;
+        width: 150px;
+    }
+
+    #main_window .box .paragraph  {
+        display:inline-block;
+        vertical-align: top;
+        width: 500px;
+        margin: auto;
+    }
