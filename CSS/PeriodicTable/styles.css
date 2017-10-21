@@ -1,0 +1,15 @@
+* {
+    outline: 1px dashed green;
+}
+
+#wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+.element {
+    border: 1px solid black;
+    display:inline-block;
+    height: 55px;
+    width: 50px;
+    text-align: center;
+}
