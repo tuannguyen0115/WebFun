@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            // click 
+            var count = 0;
+            $('input[name="Click"]').click(function(){
+                count++;
+                $('p.click').html("Click count currently is " + count);
+            })
+
+            // hide
+            $('input[name="Hide"]').click(function(){
+                $('p.hide').hide();
+            })
+
+            // show
+            $('input[name="Show"]').click(function(){
+                $('p.show_hidden').show();
+            })
+
+            // toggle
+            $('input[name="Toggle"]').click(function(){
+                $('p.show_toggle').toggle();
+            })
+
+            // slideDown
+            $('input[name="SlideDown"]').click(function(){
+                $('p.slidedown_p').slideDown(2000);
+            })     
+
+            // slideUp
+            $('input[name="SlideUp"]').click(function(){
+                $('p.slideup_p').slideUp(2000);
+            })  
+
+            // slideToggle
+            $('input[name="SlideToggle"]').click(function(){
+                $('p.slidetoggle_p').slideToggle(2000);
+            })       
+
+            // FadeIn
+            $('input[name="FadeIn"]').click(function(){
+                $('p.fadein_p').fadeIn(2000);
+            }) 
+
+            // FadeOut
+            $('input[name="FadeOut"]').click(function(){
+                $('p.fadeout_p').fadeOut(2000);
+            })        
+
+            // AddClass
+            $('input[name="AddClass"]').click(function(){
+                $('p.addclass').addClass('red');
+            })
+
+
+            // Before
+            $('input[name="Before"]').click(function(){
+                $('p.before').before("This paragraph is added before the original paragraph. It will not have class 'red'");
+            })
+            
+            // After
+            $('input[name="After"]').click(function(){
+                $('p.after').after("This paragraph is added after the original paragraph. It will not have class 'red'");
+            })
+            
+            // Append
+            $('input[name="Append"]').click(function(){
+                $('p.append').append("This paragraph is appended to the original paragraph. It will have class 'red'");
+            })     
+            
+            // Html
+            $('input[name="Html"]').click(function(){
+                $('p.html').html("<i>This paragraph</i> uses .html()");
+            }) 
+            
+            // Text
+            $('input[name="Text"]').click(function(){
+                $('p.text').text("<i>This paragraph</i> uses .text()");
+            })         
+            
+            // Attr
+            $('input[name="Attr"]').click(function(){                
+                $('p.attr').html( ".attr( 'title' ): <b>" + $('p.attr').attr( "title" ) + "</b><br>");                
+            })      
+            
+            // Val
+            $('input[name="Val"]').click(function(){                
+                $('p.val').html("Value of the textfield: " + $('input.val_input').val());                
+            })              
+
+            // Data
+            $('input[name="Data"]').click(function(){                
+                if ($('input.data_val').val()!= "") {
+                    $('p.data').html("Stored (" + $('input.data_key').val() +", " + $('input.data_val').val() + ") into paragraph.");                
+                    $('p.data').data($('input.data_key').val(),$('input.data_val').val());
+                } else {
+                    $('p.data').html("Value of key " + $('input.data_key').val() +" is:  " + $('p.data').data($('input.data_key').val()));                
+
+                }
+
+            })               
+        })
+
+
+
+    </script>
+    <style>
+        input {
+            display: inline-block;            
+            margin-left: 100px;
+        }
+        p {
+            display: inline-block;
+            margin-left: 100px;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click</h1>
+    <input type="button" name="Click" value="Click">
+    <p class="click">Click the button to count the number of Clicks: </p>
+    <hr>
+
+    <h1>Hide</h1>
+    <input type="button" name="Hide" value="Hide">
+    <p>Click the button to hide this paragraph.</p>
+    <hr> 
+
+    <h1>Show</h1>
+    <input type="button" name="Show" value="Show">
+    <p>Click the button to show a hidden paragraph.</p>
+    <p style="display:none;" class="show_hidden">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati consectetur cum provident exercitationem quas veritatis repellat nam, culpa voluptate natus asperiores molestiae, optio praesentium consequuntur similique temporibus. Excepturi, eaque modi!</p>
+    <hr> 
+  
+    <h1>Toggle</h1>
+    <input type="button" name="Toggle" value="Toggle">
+    <p>Click the button to toggle a paragraph.</p>
+    <p class="show_toggle">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati consectetur cum provident exercitationem quas veritatis repellat nam, culpa voluptate natus asperiores molestiae, optio praesentium consequuntur similique temporibus. Excepturi, eaque modi!</p>
+    <hr>  
+    
+    <h1>SlideDown</h1>
+    <input type="button" name="SlideDown" value="SlideDown">
+    <p>Click the button to slide down a paragraph.</p>
+    <p style="display:none;" class="slidedown_p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati consectetur cum provident exercitationem quas veritatis repellat nam, culpa voluptate natus asperiores molestiae, optio praesentium consequuntur similique temporibus. Excepturi, eaque modi!</p>
+    <hr>   
+
+    <h1>SlideUp</h1>
+    <input type="button" name="SlideUp" value="SlideUp">
+    <p>Click the button to slide down a paragraph.</p>
+    <p class="slideup_p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati consectetur cum provident exercitationem quas veritatis repellat nam, culpa voluptate natus asperiores molestiae, optio praesentium consequuntur similique temporibus. Excepturi, eaque modi!</p>
+    <hr>    
+
+    <h1>SlideToggle</h1>
+    <input type="button" name="SlideToggle" value="SlideToggle">
+    <p>Click the button to toggle slide a paragraph.</p>
+    <p class="slidetoggle_p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati consectetur cum provident exercitationem quas veritatis repellat nam, culpa voluptate natus asperiores molestiae, optio praesentium consequuntur similique temporibus. Excepturi, eaque modi!</p>
+    <hr> 
+
+    <h1>FadeIn</h1>
+    <input type="button" name="FadeIn" value="FadeIn">
+    <p>Click the button to fade in a paragraph.</p>
+    <p style="display:none;" class="fadein_p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati consectetur cum provident exercitationem quas veritatis repellat nam, culpa voluptate natus asperiores molestiae, optio praesentium consequuntur similique temporibus. Excepturi, eaque modi!</p>
+    <hr> 
+
+    <h1>FadeOut</h1>
+    <input type="button" name="FadeOut" value="FadeOut">
+    <p>Click the button to hide this paragraph.</p>
+    <p class="fadeout_p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati consectetur cum provident exercitationem quas veritatis repellat nam, culpa voluptate natus asperiores molestiae, optio praesentium consequuntur similique temporibus. Excepturi, eaque modi!</p>
+    <hr> 
+
+    <h1>AddClass</h1>
+    <input type="button" name="AddClass" value="AddClass">
+    <p class="addclass">Click the button to add class 'red' to this paragraph.</p>
+    <hr>
+      
+    <h1>Before</h1>
+    <input type="button" name="Before" value="Before">
+    <p class="before red">Click the button to add a paragraph before this paragraph.</p>
+    <hr>
+
+    <h1>After</h1>
+    <input type="button" name="After" value="After">
+    <p class="after red">Click the button to add a paragraph after this paragraph.</p>
+    <hr>
+
+    <h1>Append</h1>
+    <input type="button" name="Append" value="Append">
+    <p class="append red">Click the button to hide this paragraph.</p>
+    <hr>  
+
+    <h1>Html</h1>
+    <input type="button" name="Html" value="Html">
+    <p class="html">Click the button to change the content and html of this paragraph</p>
+    <hr>    
+
+    <h1>Text</h1>
+    <input type="button" name="Text" value="Text">
+    <p class="text">Click the button to change the text content this paragraph.</p>
+    <hr>  
+    
+    <h1>Attr</h1>
+    <input type="button" name="Attr" value="Attr">
+    <p class="attr" title="title for attr">Click the button to retieve "title" attribute of the paragraph.</p>
+    <br>
+    <hr> 
+    
+    <h1>Val</h1>
+    <input type="button" name="Val" value="Val">
+    <input class="val_input" type="text" value="retrieve this text">
+    <p class="val">Click the button to retrieve the value of the textfield.</p>
+    <hr> 
+    
+    <h1>Data</h1>
+    <input type="button" name="Data" value="Data">
+    <input class="data_key" type="text" value="key">    
+    <input class="data_val" type="text" value="value">  
+    <br>
+    <p class="data">Click the button to store the data(key,value) in paragraph. If only key textfield is entered, value of that key will be retrieved.</p>
+    <hr>     
+</body>
+</html>
