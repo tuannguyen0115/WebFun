@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.2.1.js"></script>
+    <title>Document</title>
+    <style>
+            tr, td, th {
+                border: 1px solid black;
+            }
+
+            .user_form {
+                width: 300px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+            }
+    </style>    
+
+    <script>
+        $(document).ready(function(){
+            $('.user_form').submit(function(){
+                var fname = $('input[name="first_name"]').val();
+                var lname = $('input[name="last_name"]').val();
+                var email = $('input[name="email"]').val();
+                var contact = $('input[name="contact"]').val();
+                var html = "<tr>" + 
+                                "<td>" + fname + "</td>" + 
+                                "<td>" + lname + "</td>" + 
+                                "<td>" + email + "</td>" + 
+                                "<td>" + contact + "</td>" + 
+                            "</tr>";
+                $('tbody').append(html);
+                return false;
+
+            })
+        })
+    </script>
+</head>
+
+<body>
+    
+        <h1>Add User</h1>
+        <hr> <br>
+    <form class="user_form" method='post'>    
+        <label for="firstname">First Name: </label><input type="text" name="first_name">
+        <label for="lastname">Last Name: </label><input type="text" name="last_name">
+        <label for="email">Email Address: </label><input type="text" name="email">
+        <label for="contact">Contact No.: </label><input type="text" name="contact">        
+        <input type="submit" name="add_user" value="Add User">          
+    </form>          
+    <br> <br>
+    <table>
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Contact No.</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tuan</td>
+                <td>Nguyen</td>
+                <td>tuannguyen0115@gmail.com</td>
+                <td>601-310-6154</td>
+            </tr>
+        </tbody>
+    </table>    
+</body>
+</html>
