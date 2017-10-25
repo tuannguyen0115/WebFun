@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The CodingDojo contact page</title>
+    <script src="jquery-3.2.1.js"></script>
+    <style>
+        * {
+            margin: 5px;
+        }
+        .contact_form {
+            display:flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 300px;
+        }
+        .card {
+            width: 250px;
+            height: 100px;
+            display: inline-block;
+            border: 1px solid black;
+            text-align: center;
+            vertical-align: top;
+        }
+    </style>
+    <script>
+        
+        function click_to_description() {     
+            var target = $(event.target);
+            if (target.is(".card")) {
+                target.children().toggle();
+            }
+            if (target.parents().is(".card")) {
+                console.log("target is div");
+                target.siblings().toggle();
+                target.toggle();
+            }            
+        }
+        $(document).ready(function(){
+            $('.contact_form').submit(function(){
+                var fname = $('input[name="first_name"').val();   
+                var lname = $('input[name="last_name"').val(); 
+                var desc = $('textarea[name="description"').val();
+                html = "<div class='card'>" +
+                            "<h1>" + fname + " " + lname + "</h1>" +
+                            "<h4> Click for description! </h4>" + 
+                            "<p style='display:none;'>" + desc + "</p>" +
+                       "</div>";
+                // html_desc = "<p style='display:none;'>" + desc + "</p>";
+                $('body').append(html);
+                return false;
+            })
+
+            $(document).on('click','.card', function(){
+                click_to_description();
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <h1>Contact Info</h1>
+    <form class="contact_form" action="" method="POST">
+        First name: <input type="text" name="first_name">
+        Last name: <input type="text" name="last_name">
+        Description: <textarea name="description" id="" cols="50" rows="5"></textarea>
+        <input type="submit" name="add_user" value="Add User">
+    </form>
+
+</body>
+</html>
