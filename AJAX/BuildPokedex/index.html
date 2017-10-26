@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Builds your own Pokedex</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous">
+    </script>
+    <style>
+        #wrapper {
+            width: 970px;
+        }
+        #pokelist, #info {
+            display: inline-block; 
+            padding: 5px;           
+        }
+        #pokelist {
+            width: 70%;
+        }        
+
+        #info {
+            width: 25%;
+            vertical-align: top;            
+        }
+
+    </style>
+    <script>
+        var pokearray = [];
+        $(document).ready(function(){
+            for (var i=1; i < 10; i++) {
+                $.get("https://pokeapi.co/api/v2/pokemon/"+i+"/", function(response){
+                    $('#pokelist').append("<img id='" + response.id + "' src='" + response.sprites.front_default + "'>");                   
+                    pokearray[response.id] = response;
+                }, "json");
+            }
+            $(document).on('click','img', function(){
+                if ($(event.target).parent('#info').length) return
+                $('#info').children().remove();
+                // var pid = $(event.target).attr('id');                
+                // $.get("https://pokeapi.co/api/v2/pokemon/"+ pid, function(response){
+                //     $('#info').append("<h1 style='text-align:center;'>" + response.name + "</h1>");
+                //     $('#info').append("<img style='margin:auto; display:block;' id='info_pic' src='" + response.sprites.front_default + "'>");   
+                //     $('#info').append("<h3>Types</h3>");
+                //     for (var i = 0; i < response.types.length; i++) {
+                //         $('#info').append("<li style='margin-left: 20px;'>" + response.types[i].type.name +"</li>"); 
+                //     }                  
+                //     $('#info').append("<h3>Height</h3>");
+                //     $('#info').append("<p>" + response.height + "</p>");
+                //     $('#info').append("<h3>Weight</h3>");
+                //     $('#info').append("<p>" + response.weight + "</p>");
+                // }, "json");
+                
+                var pid = parseInt($(event.target).attr('id'));
+                $('#info').append("<h1 style='text-align:center;'>" + pokearray[pid].name + "</h1>");
+                $('#info').append("<img style='margin:auto; display:block;' id='info_pic' src='" + pokearray[pid].sprites.front_default + "'>");   
+                $('#info').append("<h3>Types</h3>");
+                for (var i = 0; i < pokearray[pid].types.length; i++) {
+                    $('#info').append("<li style='margin-left: 20px;'>" + pokearray[pid].types[i].type.name +"</li>"); 
+                }                  
+                $('#info').append("<h3>Height</h3>");
+                $('#info').append("<p>" + pokearray[pid].height + "</p>");
+                $('#info').append("<h3>Weight</h3>");
+                $('#info').append("<p>" + pokearray[pid].weight + "</p>");                
+               
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="pokelist">            
+        </div>
+        <div id="info">
+            
+        </div>
+
+    </div>
+    
+</body>
+</html>
