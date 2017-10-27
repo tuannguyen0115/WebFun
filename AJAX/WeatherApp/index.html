@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Forecast App</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"> </script>    
+    <script>
+        $(document).ready(function(){
+            $('form').submit(function(){            
+                $('#weather').children().remove();
+                var city = $('input[name="city"]').val();
+                $.get("http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=a9b170fb2fae28a710dc65ef3b719adb",function(resp){
+                    $('#weather').append("<h1>"+ resp.name +"</h1>");
+                    $('#weather').append("<p>Temperature: "+ resp.main.temp +" ℉</p>");
+                }).fail(function(){
+                    $('#weather').append("<h1>There is no city named " + city +"</h1>");
+                });
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <form method="POST">
+        <input type="text" name="city">
+        <input type="submit" name="submit" value= "Search Weather">
+    </form>
+    <div id="weather">
+
+    </div>
+</body>
+</html>
