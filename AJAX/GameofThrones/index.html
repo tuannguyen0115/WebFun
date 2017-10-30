@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game of Thrones</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"> </script> 
+    <style>
+        * {
+            margin: 10px;
+        }
+        #wrapper {
+            width: 970px;
+            display: flex;
+            justify-content: space-around;
+            flex-flow: row wrap;
+            
+        }
+        img {
+            display: inline-block;
+            max-width: 20%;
+            height: auto;
+            align-self: center;
+            
+        }
+        #details {
+            /* height:100px; */
+            width:500px;
+            border:2px solid black;
+        }
+
+        h3 {
+            width:130px;
+            margin-top:-10px;
+            margin-left:20px;
+            padding-left: 10px;
+            background:white;
+        }        
+    </style>
+    <script>        
+        var stark, targaryen, lannister, baratheon;
+        $(document).ready(function(){
+            $(document).on('click', 'img', function(){
+                $('#details').children().remove('p');
+                houseid = $(event.target).attr('id');
+                $.get('https://anapioficeandfire.com/api/houses/' + houseid, function(resp){
+                    $('#details').append('<p><b>Name:</b> ' + resp.name + '</p>');
+                    $('#details').append('<p><b>Words:</b> ' + resp.words + '</p>');
+                    $('#details').append('<p><b>Titles:</b> ' + resp.titles + '</p>');
+                });                
+            })
+
+                                                             
+        });
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+            <img id="362" name='Stark of Winterfell' src="stark.jpg" alt="">
+            <img id="378" name="House Targaryen of King's Landing" src="targaryen.jpg" alt="">
+            <img id="229" name="Lannister of Casterly Rock" src="lannister.jpg" alt="">            
+            <img id="17" name="Baratheon of Storm's End" src="baratheon.png" alt="">
+        <div id="details">
+            <h3>House Details</h3>
+        </div>        
+    </div>
+</body>
+</html>
