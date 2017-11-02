@@ -1,0 +1,40 @@
+#wrapper {
+    width: 70%;
+    margin: 0 auto;
+}
+#header {
+    background-color: lightgray;    
+
+}
+
+p {
+    font-size: 1em;
+}
+a {
+    background-color: lightgray;
+    margin-right: 
+}
+
+
+#main_content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.col {
+    display: inline-block;
+    width: 23%;
+}
+
+
+@media only screen and (max-width: 900px) {
+    a {
+        display:none;
+    }
+    .col {
+        width: 30%;
+    }
+    .col:last-child {
+        width: 100%;
+    }
+}
